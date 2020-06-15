@@ -1,0 +1,21 @@
+.section {
+	$self: &;
+
+	&_grey {
+		
+	}
+	&__container {
+		@include wrapper();
+	}
+	&__description {
+		width: 50%;
+		margin-right: 0;
+		color: $darkgrey;
+		font-size: 0.8rem;
+		line-height: 1rem;
+		padding: 20px 20px 20px 50px;
+		margin: 20px 20px 20px auto;
+		background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="24.823" height="22.958" viewBox="0 0 24.823 22.958"><path id="Path_1" data-name="Path 1" d="M5.838,10.662A13.945,13.945,0,0,1,4.427,16.9a7.475,7.475,0,0,1-3.85,3.324l2.1,3.4A13.056,13.056,0,0,0,9.09,17.788q1.482-2.821,1.483-9.231V.666H1.342v10Zm14.827,0A13.945,13.945,0,0,1,19.254,16.9a7.475,7.475,0,0,1-3.85,3.324l2.1,3.4a13.056,13.056,0,0,0,6.409-5.835Q25.4,14.967,25.4,8.557V.666H16.169v10Z" transform="translate(-0.577 -0.666)" fill="#ccc" fill-rule="evenodd"/></svg>') 12px 12px no-repeat #fff1c5;
+		background-size: 28px 28px;
+	}
+}

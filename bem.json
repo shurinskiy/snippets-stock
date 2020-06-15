@@ -1,30 +1,33 @@
 {
-	"header": {},
-	"main": {},
-	"footer": {},
-	"blockname1": {
-		"mods": "modifier1, modifier2",
+	"section": {
+		"mods": "grey",
 		"elems": [{
-				"elem": "elemname1",
-				"mods": "modifier1"
+				"elem": "container"
 			},
 			{
-				"elem": "elemname2",
-				"mods": "modifier1"
+				"elem": "description",
+				"mods": "right"
 			}
 		]
 	},
-	"blockname2": {
-		"mods": "modifier1, modifier2",
-		"elems": [{
-				"elem": "elemname1",
-				"mods": "modifier1, modifier2"
-			},
-			{
-				"elem": "elemname2",
-				"mods": "modifier1, modifier2"
-			}
+	"navi-1": {
+		"elems": [
+			{ "elem": "menu" },
+			{ "elem": "menu-item" },
+			{ "elem": "submenu" },
+			{ "elem": "submenu-item" },
+			{ "elem": "toggle" },
+			{ "elem": "menu-open" },
+			{ "elem": "menu-close" }
 		],
-		"js": true
+	"js": true
+	},
+	"navi-2": {
+		"mods": "fixed",
+		"elems": [
+			{ "elem": "menu" },
+			{ "elem": "menu-item" }
+		],
+	"js": true
 	}
 }

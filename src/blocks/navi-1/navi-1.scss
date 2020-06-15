@@ -1,0 +1,101 @@
+.navi-1 {
+	$self: &;
+	$vert: 20px;
+	$horz: 40px;
+	display: flex;
+	// ==================
+	background-color: $light;
+
+	&__menu {
+		display: flex;
+		@include sm(display, none);
+	}
+
+	&__menu-item {
+		position: relative;
+		&:hover, &.hover { > * { display: block; }}
+		// ==================
+		> a {
+			display: block;
+			padding: $vert $horz;
+		}
+	}
+
+	&__submenu {
+		display: none;
+		position: absolute;
+		z-index: 1;
+		top: calc(50% + 1.0em); left: $horz;
+		// ==================
+		background-color: darken($light, 5%);
+		& & { background-color: darken($light, 10%); }
+	}
+
+	&__submenu-item {
+		position: relative;
+		&:hover, &.hover  { > * { display: block; }}
+		// ==================
+		> a {
+			display: block;
+			padding: $vert/2 $horz/2;
+		}
+	}
+
+	&__menu-open {
+		display: none;
+		@include sm(display, block);
+		// ==================
+		min-height: 60px;
+		width: 24px;
+		margin: auto $horz auto auto;
+		cursor: pointer;
+		background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="17" viewBox="0 0 24 17"><defs><style>.cls-1 {fill:#aaa;fill-rule:evenodd;}</style></defs><path id="rect_1" data-name="rect 1" class="cls-1" d="M0,0H24V3H0V0ZM0,14H24v3H0V14ZM0,7H24v3H0V7Z"/></svg>') center center no-repeat transparent;
+	}
+
+	&__menu-close {
+		display: none;
+		position: absolute;
+		z-index: 9999;
+		// ==================
+		height: 50px;
+		width: 50px;
+		cursor: pointer;
+		top: 30px; right: 30px;
+		background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><style>.cls-1 {fill:#ddd; fill-rule:evenodd;}</style></defs><path id="1" data-name="1" class="cls-1" d="M3.928,23.994L0,20.07,8.075,12,0,3.928,3.928,0,12,8.075,20.072,0,24,3.928,15.925,12l8.07,8.068L20.07,23.992,12,15.923Z"/></svg>') center center no-repeat transparent;
+	}
+
+	#{$self}__toggle  {
+		@include hide();
+		&:checked ~ #{$self}__menu {
+			display: block;
+			position: absolute;
+			z-index: 9998;
+			// ==================
+			box-sizing: border-box;
+			font-size: 1.4rem;
+			top: 0; right: 0; left: 0; bottom: 0;
+			height: 100vh;
+			background-color: rgba(0, 0, 0, 0.8);
+			padding-left: 30%;
+			padding-top: 10vh;
+			overflow: auto;
+			#{$self}__menu-item {
+				> a { padding-left: $vert/2; }
+			}
+			#{$self}__submenu {
+				position: static;
+				// ==================
+				background-color: transparent;
+				margin-left: 10%;
+				border-left: 1px solid $grey;
+			}
+			#{$self}__submenu-item {
+				> a { font-size: 1rem; }
+			}
+		}
+		&:checked ~ #{$self}__menu-close {
+			display: block;
+		}
+	}
+
+}
