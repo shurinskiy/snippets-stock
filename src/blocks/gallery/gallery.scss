@@ -1,0 +1,29 @@
+
+.gallery {
+	$self: &;
+	$gap: 20px;
+
+	&__items {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		margin: 0 -#{$gap/2};
+	}
+	&__item {
+		flex: 0 1 auto;
+		width: calc(99.9% / 4 - #{$gap});
+		@include md(width, calc(99.9% / 3 - #{$gap}));
+		@include sm(width, calc(99.9% / 2 - #{$gap}));
+		@include xxxs(width, calc(99.9% / 1 - #{$gap}));
+		box-sizing: border-box;
+		margin: 0 $gap/2 $gap $gap/2;
+		background-color: #fff;
+		border: 1px solid #eee;
+		img { 
+			display: block; 
+			box-sizing: border-box;
+			width: 90%;
+			margin: 5%;
+		}
+	}
+}

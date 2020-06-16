@@ -2,12 +2,13 @@
 	$self: &;
 
 	&__menu {
-		background-color: $light;
+		background-color: $lightgrey;
 		display: flex;
 	}
 	&__menu-item {
 		display: block;
 		padding: 10px 20px;
+		color: #fff;
 	}
 	&_fixed {
 		padding-top: 42px;

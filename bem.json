@@ -29,5 +29,18 @@
 			{ "elem": "menu-item" }
 		],
 	"js": true
+	},
+	"form-1": {
+		"elems": [
+			{ "elem": "checkbox" },
+			{ "elem": "radio" },
+			{ "elem": "switch" }
+		]
+	},
+	"gallery": {
+		"elems": [
+			{ "elem": "items" },
+			{ "elem": "item" }
+		]
 	}
 }

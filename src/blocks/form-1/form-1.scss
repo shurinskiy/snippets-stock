@@ -1,0 +1,72 @@
+.form-1 {
+	$self: &;
+
+	&__checkbox {
+		margin-right: 10px;
+		cursor: pointer;
+		> span::before {
+			content: "";
+			display: inline-block;
+			box-sizing: border-box;
+			width: 22px;
+			height: 22px;
+			background-color: #fff;
+			border: 2px solid #ccc;
+			border-radius: 3px;
+			vertical-align: middle;
+			margin-right: 5px;
+		}
+	
+		> input {
+			@include hide();
+			&:checked + span::before {
+				background: transparent svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="14.301" height="11.482" viewBox="0 0 14.301 11.482"><path id="Path_2" data-name="Path 2" d="M2245.533,928.814l4.3,6.1,8.446-9.215" transform="translate(-2244.715 -925.027)" fill="none" stroke="#aaa" stroke-width="3"/></svg>') no-repeat center;
+			}
+		}
+	}
+	&__radio {
+		@extend #{$self}__checkbox;
+		> span::before {
+			width: 23px;
+			height: 23px;
+			border-radius: 100px;
+		}
+	
+		> input {
+			&:checked + span::before {
+				background: transparent svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 11 11"><path d="M5.5,0A5.5,5.5,0,1,1,0,5.5,5.5,5.5,0,0,1,5.5,0Z" fill="#aaa"/></svg>') no-repeat center;
+			}
+		}
+	}
+	&__switch {
+		> span {
+			cursor: pointer;
+			display: inline-block;
+			background: transparent svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="35" height="23" viewBox="0 0 35 23"><rect width="35" height="23" rx="11.5" fill="#ccc"/></svg>') no-repeat left;
+			&::before {
+				content: "";
+				display: inline-block;
+				box-sizing: border-box;
+				width: 19px;
+				height: 19px;
+				background-color: #fff;
+				border-radius: 100px;
+				vertical-align: middle;
+				margin: 2px 20px 2px 2px;
+				// transition: margin 0.1s;
+				box-shadow: -1px 1px 1px #888;
+			}
+		}
+
+		> input {
+			@include hide();
+			&:checked + span {
+				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="35" height="23" viewBox="0 0 35 23"><rect width="35" height="23" rx="11.5" fill="#aaa"/></svg>');
+			}
+			&:checked + span::before {
+				margin: 2px 8px 2px 14px;
+			}
+		}
+	}
+}
+
