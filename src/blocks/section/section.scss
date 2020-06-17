@@ -9,6 +9,23 @@
 	&__container {
 		@include wrapper();
 	}
+	&__items {
+		@include row-flex();
+		justify-content: center;
+	}
+	&__item {
+		margin-bottom: $offset;
+		@include col();
+		@include size(8);
+		@include size-md(12);
+		@include size-xs(20);
+		@include size-xxs(24);
+		&:last-of-type {
+			@include md(display, none);
+			@include xs(display, block);
+		}
+
+	}
 	&__description {
 		width: 50%;
 		margin-right: 0;

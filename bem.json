@@ -37,10 +37,11 @@
 			{ "elem": "switch" }
 		]
 	},
-	"gallery": {
+	"gallery-1": {
 		"elems": [
 			{ "elem": "items" },
 			{ "elem": "item" }
 		]
-	}
+	},
+	"title-1": {}
 }
