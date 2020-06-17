@@ -43,5 +43,8 @@
 			{ "elem": "item" }
 		]
 	},
-	"title-1": {}
+	"title": {},
+	"decor": {
+		"mods": "postmark"
+	}
 }
