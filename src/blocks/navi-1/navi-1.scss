@@ -13,11 +13,20 @@
 
 	&__menu-item {
 		position: relative;
-		&:hover, &.hover { > * { display: block; }}
+		&:hover, &.hover {
+			> #{$self}__submenu { display: block; }
+		}
 		// ==================
 		> a {
-			display: block;
+			display: inline-block;
 			padding: $vert $horz;
+		}
+
+		&_haschild {
+			> a {
+				background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="17.963" height="10.982" viewBox="0 0 17.963 10.982"><path d="M1049.307,467.556l8.06,7.8,7.8-7.8" transform="translate(-1048.264 -466.478)" fill="none" stroke="#{$grey}" stroke-width="3"/></svg>') no-repeat right 15px center;
+				background-size: 13px;
+			}
 		}
 	}
 
@@ -33,11 +42,21 @@
 
 	&__submenu-item {
 		position: relative;
-		&:hover, &.hover  { > * { display: block; }}
+		&:hover, &.hover  { 
+			> #{$self}__submenu { display: block; }
+		}
 		// ==================
 		> a {
-			display: block;
+			display: inline-block;
 			padding: $vert/2 $horz/2;
+		}
+
+		&_haschild {
+			> a {
+				background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="17.963" height="10.982" viewBox="0 0 17.963 10.982"><path d="M1049.307,467.556l8.06,7.8,7.8-7.8" transform="translate(-1048.264 -466.478)" fill="none" stroke="#{$grey}" stroke-width="3"/></svg>') no-repeat right 15px center;
+				background-size: 13px;
+				padding-right: $horz;
+			}
 		}
 	}
 
@@ -75,7 +94,7 @@
 			font-size: 1.4rem;
 			top: 0; right: 0; left: 0; bottom: 0;
 			height: 100vh;
-			background-color: rgba(0, 0, 0, 0.8);
+			background-color: rgba(0, 0, 0, 0.9);
 			padding-left: 30%;
 			padding-top: 10vh;
 			overflow: auto;
