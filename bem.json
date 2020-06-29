@@ -46,5 +46,16 @@
 	"title": {},
 	"decor": {
 		"mods": "postmark"
+	},
+	"tabs-1": {
+		"elems": [
+			{ "elem": "items" },
+			{ 
+				"elem": "item",
+				"mods": "active"
+			},
+			{ "elem": "subitem" }
+		],
+		"js": true
 	}
 }

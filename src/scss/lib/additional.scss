@@ -101,6 +101,6 @@ $orange: #f9a200;
 	left: -9999px;
 }
 
-@mixin outline() { 
-	outline: 1px dotted grey; 
+@mixin outline($color: grey) { 
+	outline: 1px dotted $color; 
 } 
