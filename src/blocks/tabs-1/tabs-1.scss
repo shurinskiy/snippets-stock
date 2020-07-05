@@ -5,7 +5,7 @@
 	display: flex;
 	position: relative;
 	box-sizing: border-box;
-	background-color: $light;
+	background-color: #fff;
 	border: 1px solid lighten($lightgrey, 12);
 
 	&__items {
@@ -38,7 +38,7 @@
 		}
 
 		&_active {
-			background-color: $light;
+			background-color: #fff;
 			@include sm-block() {
 				background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="17.964" height="10.982" viewBox="0 0 17.964 10.982"><path d="M1049.31,467.556l8.06,7.8,7.8-7.8" transform="translate(1066.231 477.46) rotate(180)" fill="none" stroke="#999" stroke-width="3"/></svg>');
 				background-color: lighten($lightgrey, 12);
@@ -52,7 +52,6 @@
 	&__subitem {
 		display: none;
 		padding: 20px;
-		background-color: $light;
 		box-sizing: border-box;
 		position: absolute;
 		top: 0; right: 0; bottom: 0;

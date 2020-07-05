@@ -1,0 +1,87 @@
+.tabs-2 {
+	$self: &;
+
+	display: flex;
+	flex-flow: row wrap;
+
+	&__hidden {
+		@include hide();
+		@include sm-block() {
+			&#tab1:checked ~ #{$self}__items { order: 1; }
+			&#tab2:checked ~ #{$self}__items { order: 2; }
+			&#tab3:checked ~ #{$self}__items { order: 3; }
+			&#tab4:checked ~ #{$self}__items { order: 4; }
+			&#tab5:checked ~ #{$self}__items { order: 5; }
+			&#tab6:checked ~ #{$self}__items { order: 6; }
+		}
+
+		&#tab1:checked ~ #{$self}__items #{$self}__item:nth-child(1),
+		&#tab2:checked ~ #{$self}__items #{$self}__item:nth-child(2),
+		&#tab3:checked ~ #{$self}__items #{$self}__item:nth-child(3),
+		&#tab4:checked ~ #{$self}__items #{$self}__item:nth-child(4),
+		&#tab5:checked ~ #{$self}__items #{$self}__item:nth-child(5),
+		&#tab6:checked ~ #{$self}__items #{$self}__item:nth-child(6) {
+			display: block;
+		}
+
+		&#tab1:checked ~ label[for="tab1"],
+		&#tab2:checked ~ label[for="tab2"],
+		&#tab3:checked ~ label[for="tab3"],
+		&#tab4:checked ~ label[for="tab4"],
+		&#tab5:checked ~ label[for="tab5"],
+		&#tab6:checked ~ label[for="tab6"] {
+			background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="650" height="200" viewBox="0 0 650 200"><path d="M650.5,199.5H1.5V.5H631.791l18.709,19Z" transform="translate(-1)" fill="#fff" stroke="#{$lightgrey}" stroke-width="1"/></svg>') no-repeat top right;
+			border-bottom: none;
+			@include sm-block() {
+				background: darken($light, 5) svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="17.964" height="10.982" viewBox="0 0 17.964 10.982"><path d="M1049.31,467.556l8.06,7.8,7.8-7.8" transform="translate(1066.231 477.46) rotate(180)" fill="none" stroke="#999" stroke-width="3"/></svg>') no-repeat right 30px center;
+				background-color: darken($light, 5);
+			}
+		}
+	}
+
+	&__label {
+		// @include outline();
+		box-sizing: border-box;
+		cursor: pointer;
+		padding: 15px 30px 8px 15px;
+		background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="650" height="200" viewBox="0 0 650 200"><path d="M650.5,199.5H1.5V.5H631.791l18.709,19Z" transform="translate(-1)" fill="#{darken($light, 5)}" stroke="#{$lightgrey}" stroke-width="1"/></svg>') no-repeat top right;
+		border-left: 1px solid $lightgrey;
+		border-bottom: 1px solid $lightgrey;
+		position: relative;
+		bottom: -1px;
+		margin-left: -1px;
+		&:first-of-type { margin-left: 0; }
+		@include sm-block() {
+			position: static;
+			width: 100%;
+			padding: 15px 45px 15px 15px;
+			margin: 0;
+			background: darken($light, 5) svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="17.963" height="10.982" viewBox="0 0 17.963 10.982"><path d="M1049.307,467.556l8.06,7.8,7.8-7.8" transform="translate(-1048.264 -466.478)" fill="none" stroke="#999" stroke-width="3"/></svg>')  no-repeat right 30px center;
+			border: 1px solid $lightgrey;
+			border-bottom: none;
+
+			&:last-of-type { border-bottom: 1px solid $lightgrey; }
+			&:nth-of-type(1) { order: 1; }
+			&:nth-of-type(2) { order: 2; }
+			&:nth-of-type(3) { order: 3; }
+			&:nth-of-type(4) { order: 4; }
+			&:nth-of-type(4) { order: 5; }
+			&:nth-of-type(4) { order: 4; }
+		}
+	}
+
+	&__items {
+		flex-grow: 9999;
+		padding: 15px;
+		background-color: #fff;
+		border: 1px solid $lightgrey;
+		box-sizing: border-box;
+		@include sm-block() {
+			margin-bottom: -1px;
+		}
+	}
+
+	&__item {
+		display: none;
+	}
+}

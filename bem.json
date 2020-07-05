@@ -44,6 +44,7 @@
 		]
 	},
 	"title": {},
+	"table-1": {},
 	"decor": {
 		"mods": "postmark"
 	},
@@ -57,5 +58,14 @@
 			{ "elem": "subitem" }
 		],
 		"js": true
+	},
+	"tabs-2": {
+		"elems": [
+			{ "elem": "hidden" },
+			{ "elem": "label"},
+			{ "elem": "subitem" },
+			{ "elem": "items" },
+			{ "elem": "item" }
+		]
 	}
 }
