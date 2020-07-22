@@ -41,7 +41,8 @@
 		"elems": [
 			{ "elem": "items" },
 			{ "elem": "item" }
-		]
+		],
+		"js": true
 	},
 	"title": {},
 	"table-1": {},
@@ -63,7 +64,6 @@
 		"elems": [
 			{ "elem": "hidden" },
 			{ "elem": "label"},
-			{ "elem": "subitem" },
 			{ "elem": "items" },
 			{ "elem": "item" }
 		]
