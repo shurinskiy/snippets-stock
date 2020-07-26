@@ -67,5 +67,14 @@
 			{ "elem": "items" },
 			{ "elem": "item" }
 		]
+	},
+	"parallax-1": {
+		"elems": [
+			{ "elem": "item" },
+			{ "elem": "effect" },
+			{ "elem": "title" },
+			{ "elem": "text" }
+		],
+		"js": true
 	}
 }

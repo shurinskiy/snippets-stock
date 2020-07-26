@@ -7,6 +7,9 @@
 // @include font-face("Roboto-Black", "RBBL");
 @import "../blocks/**/*.scss";
 
+body {
+	@include screen-media();
+}
 
 body,
 html {
