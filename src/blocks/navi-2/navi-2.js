@@ -3,6 +3,7 @@ import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 (() => {
 
 	const navi = document.querySelector('.navi-2');
+	const stop_section = document.querySelector('.section:nth-of-type(8)');
 	const parent = navi.parentNode;
 
 	document
@@ -24,7 +25,15 @@ import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 	function pinHeader() {
 		let offset = parseInt(getComputedStyle(parent).paddingTop) + parent.offsetTop;
 		navi.classList[window.pageYOffset > offset ? 'add' : 'remove']('navi-2_fixed');
+
+		/* дополнительно, чтобы не мешалось на страничке */
+		if(window.pageYOffset > stop_section.offsetTop) {
+			navi.style.display = 'none';
+		} else {
+			navi.removeAttribute('style');
+		}
 	}
+
 	window.onscroll = function () {
 		pinHeader();
 	};
