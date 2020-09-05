@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 let gulp = require('gulp');
-let fs = require('fs');
 let $ = require('gulp-load-plugins')({ pattern: '*' });
-const isRemote = process.argv.indexOf('--remote') !== -1;
 const isSync = process.argv.indexOf('--sync') !== -1;
 const isDev = process.argv.indexOf('--dev') !== -1;
 const isProd = !isDev;
@@ -73,10 +71,7 @@ function js() {
 		.pipe($.webpackStream(webconf))
 		.on('error', swallowError)
 		.pipe(gulp.dest(pth.pbl.js))
-		.pipe($.if(isSync, $.browserSync.stream()))
-		.on('end', function() {
-			if(isRemote) deploy(true, 'js');
-		});
+		.pipe($.if(isSync, $.browserSync.stream()));
 }
 
 function jslib () {
@@ -107,10 +102,7 @@ function styles() {
 		.pipe($.if(isProd, $.cleanCss({ level: 2 })))
 		.pipe($.if(isDev, $.sourcemaps.write()))
 		.pipe(gulp.dest(pth.pbl.css))
-		.pipe($.if(isSync, $.browserSync.stream()))
-		.on('end', function() {
-			if(isRemote) deploy(true, 'css');
-		});
+		.pipe($.if(isSync, $.browserSync.stream()));
 }
 
 function images() {
@@ -130,31 +122,6 @@ function fonts() {
 		.pipe($.if(isSync, $.browserSync.stream()));
 		console.log('Deleted files and folders:\n', paths.join('\n'));
 	});
-}
-
-function deploy(e, ...args) {
-	var conn = $.vinylFtp.create({
-		host: pckg.ftp.host,
-		user: pckg.ftp.user,
-		password: pckg.ftp.password,
-		parallel: 10,
-		log: $.fancyLog
-	});
-
-	args = args.length ? args : ['js','css'];
-	args.forEach(function(item, i) {
-		this[i] = pth.pbl[item]+'*.'+item;
-	}, args);
-
-	if (process.argv.indexOf('--all') !== -1) {
-		return gulp.src(pth.pbl.root+'**', {base: pth.pbl.root, buffer: false})
-			.pipe(conn.newerOrDifferentSize(pckg.ftp.workdir))
-			.pipe(conn.dest(pckg.ftp.workdir));
-	} else {
-		return gulp.src(args, {base: pth.pbl.root, buffer: false})
-			.pipe(conn.newerOrDifferentSize(pckg.ftp.workdir))
-			.pipe(conn.dest(pckg.ftp.workdir));
-	}
 }
 
 function watch() {
@@ -179,5 +146,4 @@ const build = gulp.series(clear, gulp.parallel(html, js, jslib, styles, images, 
 
 exports.build = build;
 exports.watch = gulp.series(build, watch);
-exports.deploy = gulp.series(build, deploy);
 exports.grid = grid;

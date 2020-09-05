@@ -3,23 +3,74 @@
 	$vert: 20px;
 	$horz: 40px;
 	display: flex;
-	// ==================
-	background-color: $light;
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	padding-top: 50px;
+	transition: background-color .5s ease;
+	border-bottom: 1px solid darken($light, 8%);
 
 	&__menu {
 		display: flex;
-		@include sm(display, none);
+		position: relative;
+		transition: left 0.3s linear;
+
+		@include sm-block() {
+			display: block;
+			position: fixed;
+			z-index: 9999;
+			top: 0; left: -100%;
+			width: 100%; height: 100vh;
+			padding-top: 10%;
+			background-color: rgba(0, 0, 0, 0.93);
+			backface-visibility: hidden;
+
+			@include xxs(padding-top, 20%);
+		}
+
+		&_opened {
+			@include sm(left, 0);
+		}
+	}
+
+	&__submenu {
+		display: none;
+		position: absolute;
+		z-index: 1;
+		top: calc(50% + 1.0em); left: $horz;
+		background-color: darken($light, 5%);
+		
+		& & { background-color: darken($light, 10%); }
+
+		@include sm-block() {
+			position: static;
+			background: none;
+			padding-left: $horz*1.5;
+
+			& & { background: none; }
+		}
 	}
 
 	&__menu-item {
 		position: relative;
-		&:hover, &.hover {
-			> #{$self}__submenu { display: block; }
+
+		@include sm-block() {
+			max-width: 300px;
+			margin: auto;
+			&.hover > #{$self}__submenu { display: block; }
 		}
-		// ==================
+		
+		@include from($break_sm) {
+			&:hover > #{$self}__submenu { display: block; }
+		}
+
 		> a {
 			display: inline-block;
 			padding: $vert $horz;
+			@include sm-block() {
+				text-transform: uppercase;
+				text-decoration: none;
+			}
 		}
 
 		&_haschild {
@@ -30,23 +81,18 @@
 		}
 	}
 
-	&__submenu {
-		display: none;
-		position: absolute;
-		z-index: 1;
-		top: calc(50% + 1.0em); left: $horz;
-		// ==================
-		background-color: darken($light, 5%);
-		& & { background-color: darken($light, 10%); }
-	}
-
 	&__submenu-item {
 		position: relative;
-		&:hover, &.hover  { 
-			> #{$self}__submenu { display: block; }
+
+		@include sm-block() {
+			&.hover > #{$self}__submenu { display: block; }
 		}
-		// ==================
-		> a {
+		
+		@include from($break_sm) {
+			&:hover > #{$self}__submenu { display: block; }
+		}
+
+		a {
 			display: inline-block;
 			padding: $vert/2 $horz/2;
 		}
@@ -66,7 +112,7 @@
 		// ==================
 		min-height: 60px;
 		width: 24px;
-		margin: auto $horz auto auto;
+		margin: auto auto auto $horz;
 		cursor: pointer;
 		background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="17" viewBox="0 0 24 17"><defs><style>.cls-1 {fill:#aaa;fill-rule:evenodd;}</style></defs><path id="rect_1" data-name="rect 1" class="cls-1" d="M0,0H24V3H0V0ZM0,14H24v3H0V14ZM0,7H24v3H0V7Z"/></svg>') center center no-repeat transparent;
 	}
@@ -75,46 +121,12 @@
 		display: none;
 		position: absolute;
 		z-index: 9999;
-		// ==================
 		height: 50px;
 		width: 50px;
 		cursor: pointer;
 		top: 30px; right: 30px;
 		background: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><style>.cls-1 {fill:#ddd; fill-rule:evenodd;}</style></defs><path id="1" data-name="1" class="cls-1" d="M3.928,23.994L0,20.07,8.075,12,0,3.928,3.928,0,12,8.075,20.072,0,24,3.928,15.925,12l8.07,8.068L20.07,23.992,12,15.923Z"/></svg>') center center no-repeat transparent;
-	}
 
-	#{$self}__toggle  {
-		@include hide();
-		&:checked ~ #{$self}__menu {
-			display: block;
-			position: absolute;
-			z-index: 9998;
-			// ==================
-			box-sizing: border-box;
-			font-size: 1.4rem;
-			top: 0; right: 0; left: 0; bottom: 0;
-			height: 100vh;
-			background-color: rgba(0, 0, 0, 0.9);
-			padding-left: 30%;
-			padding-top: 10vh;
-			overflow: auto;
-			#{$self}__menu-item {
-				> a { padding-left: $vert/2; }
-			}
-			#{$self}__submenu {
-				position: static;
-				// ==================
-				background-color: transparent;
-				margin-left: 10%;
-				border-left: 1px solid $grey;
-			}
-			#{$self}__submenu-item {
-				> a { font-size: 1rem; }
-			}
-		}
-		&:checked ~ #{$self}__menu-close {
-			display: block;
-		}
+		@include sm(display, block);
 	}
-
 }

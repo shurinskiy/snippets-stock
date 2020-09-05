@@ -1,18 +1,15 @@
 @@include("./templates/_head.html", {"bodyclass":"home"}) 
 @@include("./templates/_header.html") 
 <section class="section">
-	<div class="navi-1">
-		<input type="checkbox" class="navi-1__toggle" id="navi-1__toggle" />
-		<label class="navi-1__menu-open" for="navi-1__toggle"></label>
-		<label class="navi-1__menu-close" for="navi-1__toggle"></label>
+	<div class="navi-1" data-top_offset="50" data-bg_color="#eee">
+		<span class="navi-1__menu-open"></span>
 		<ul class="navi-1__menu">
+			<span class="navi-1__menu-close"></span>
 			<li class="navi-1__menu-item"><a href="/">Lorem</a></li>
-			<li class="navi-1__menu-item navi-1__menu-item_haschild">
-				<a href="/">Aliquam</a>
+			<li class="navi-1__menu-item navi-1__menu-item_haschild"><a href="/">Aliquam</a>
 				<ul class="navi-1__submenu">
 					<li class="navi-1__submenu-item"><a href="/">Ipsum</a></li>
-					<li class="navi-1__submenu-item navi-1__submenu-item_haschild">
-						<a href="/">Aliasautem</a>
+					<li class="navi-1__submenu-item navi-1__submenu-item_haschild"><a href="/">Aliasautem</a>
 						<ul class="navi-1__submenu">
 							<li class="navi-1__submenu-item"><a href="/">Consectetur</a></li>
 							<li class="navi-1__submenu-item"><a href="/">Adipisicing</a></li>
@@ -23,40 +20,20 @@
 					<li class="navi-1__submenu-item"><a href="/">Saepe</a></li>
 				</ul>
 			</li>
-			<li class="navi-1__menu-item"><a href="/">Culpa</a></li>
+			<li class="navi-1__menu-item navi-1__menu-item_haschild"><a href="/">Culpa</a>
+				<ul class="navi-1__submenu">
+					<li class="navi-1__submenu-item"><a href="/">Ipsum</a></li>
+					<li class="navi-1__submenu-item"><a href="/">Aliasautem</a></li>
+					<li class="navi-1__submenu-item"><a href="/">Soluta</a></li>
+					<li class="navi-1__submenu-item"><a href="/">Saepe</a></li>
+				</ul>
+			</li>
 			<li class="navi-1__menu-item"><a href="/">Quasi</a></li>
 			<li class="navi-1__menu-item"><a href="/">Estate</a></li>
 		</ul>
 	</div>
-	<div class="section__description">$lipsum(words:25)</div>
-</section>
-<section class="section section_grey">
-	<div class="navi-2">
-		<div class="navi-2__menu">
-			<a class="navi-2__menu-item" href="./">Lorem</a>
-			<a class="navi-2__menu-item" href="./">Unde</a>
-			<a class="navi-2__menu-item" href="./">Suscipit</a>
-			<a class="navi-2__menu-item" href="./">Similique</a>
-			<a class="navi-2__menu-item" href="./">Excepturi</a>
-		</div>
-	</div>
-	<div class="section__description">$lipsum(words:25)</div>
-</section>
-<section class="section">
-	<form class="section__container form-1">
-		<label class="form-1__checkbox">
-			<input type="checkbox"><span>Lorem</span>
-		</label>
-		<label class="form-1__radio">
-			<input type="radio" name="one" checked><span>Ipsum</span>
-		</label>
-		<label class="form-1__radio">
-			<input type="radio" name="one"><span>Dolor</span>
-		</label>
-		<label class="form-1__switch">
-			<input type="checkbox"><span>Sit</span>
-		</label>
-	</form>
+	<div class="section__extender"></div>
+	<div class="section__extender"></div>
 	<div class="section__description">$lipsum(words:25)</div>
 </section>
 <section class="section section_grey">
@@ -103,6 +80,47 @@
 		</div>
 	</div>
 	<div class="section__description">$lipsum(words:30)</div>
+</section>
+<section class="section">
+	<div class="section__container">
+		<div class="parallax-1">
+			<div class="parallax-1__item">
+				<div class="parallax-1__effect" data-image="http://unsplash.it/350/650">
+					<h2 class="parallax-1__title">$lipsum(words:10)</h2>
+				</div>
+				<div class="parallax-1__text">
+					<p>$lipsum(words:45)</p>
+					<p>$lipsum(words:45)</p>
+				</div>
+			</div>
+			<div class="parallax-1__item">
+				<div class="parallax-1__effect"data-image="http://unsplash.it/351/650">
+					<h2 class="parallax-1__title">$lipsum(words:10)</h2>
+				</div>
+				<div class="parallax-1__text">
+					<p>$lipsum(words:45)</p>
+					<p>$lipsum(words:45)</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section__description">$lipsum(words:25)</div>
+</section>
+<section class="section section_grey">
+	<div class="navi-2">
+		<input type="checkbox" class="navi-2__toggle" id="navi-2__toggle" />
+		<label class="navi-2__menu-open" for="navi-2__toggle"></label>
+		<div class="navi-2__menu">
+			<label class="navi-2__menu-close" for="navi-2__toggle"></label>
+			<a class="navi-2__menu-item" href="./">Lorem</a>
+			<a class="navi-2__menu-item" href="./">Unde</a>
+			<a class="navi-2__menu-item" href="./">Suscipit</a>
+			<a class="navi-2__menu-item" href="./">Similique</a>
+			<a class="navi-2__menu-item" href="./">Excepturi</a>
+		</div>
+	</div>
+	<div class="section__extender"></div>
+	<div class="section__description">$lipsum(words:25)</div>
 </section>
 <section class="section">
 	<div class="section__container">
@@ -173,28 +191,20 @@
 	<div class="section__description">$lipsum(words:25).</div>
 </section>
 <section class="section">
-	<div class="section__container">
-		<div class="parallax-1">
-			<div class="parallax-1__item">
-				<div class="parallax-1__effect" data-image="http://unsplash.it/350/650">
-					<h2 class="parallax-1__title">$lipsum(words:10)</h2>
-				</div>
-				<div class="parallax-1__text">
-					<p>$lipsum(words:45)</p>
-					<p>$lipsum(words:45)</p>
-				</div>
-			</div>
-			<div class="parallax-1__item">
-				<div class="parallax-1__effect"data-image="http://unsplash.it/351/650">
-					<h2 class="parallax-1__title">$lipsum(words:10)</h2>
-				</div>
-				<div class="parallax-1__text">
-					<p>$lipsum(words:45)</p>
-					<p>$lipsum(words:45)</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	<form class="section__container form-1">
+		<label class="form-1__checkbox">
+			<input type="checkbox"><span>Lorem</span>
+		</label>
+		<label class="form-1__radio">
+			<input type="radio" name="one" checked><span>Ipsum</span>
+		</label>
+		<label class="form-1__radio">
+			<input type="radio" name="one"><span>Dolor</span>
+		</label>
+		<label class="form-1__switch">
+			<input type="checkbox"><span>Sit</span>
+		</label>
+	</form>
 	<div class="section__description">$lipsum(words:25)</div>
 </section>
 <section class="section section_grey">
@@ -234,8 +244,5 @@
 	<div class="section__description">$lipsum(words:25)</div>
 </section>
 
-
-
-<!-- параллаксы! -->
 <!-- section.section>.section__container+.section__description>lorem20 -->
 @@include("./templates/_bottom.html") 

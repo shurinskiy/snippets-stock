@@ -22,5 +22,6 @@
 
 		}
 		$window.scroll(translateY);
+		translateY();
 	});
 })();

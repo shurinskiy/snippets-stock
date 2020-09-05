@@ -3,16 +3,20 @@
 
 	padding: 50px 0;
 	&:first-of-type { padding-top: 0; }
+
 	&_grey {
 		background-color: #f2f2f2;
 	}
+
 	&__container {
 		@include wrapper();
 	}
+
 	&__items {
 		@include row-flex();
 		justify-content: center;
 	}
+
 	&__item {
 		margin-bottom: $offset;
 		@include col();
@@ -24,8 +28,12 @@
 			@include md(display, none);
 			@include xs(display, block);
 		}
-
 	}
+
+	&__extender {
+		padding-top: 150px;
+	}
+
 	&__description {
 		width: 50%;
 		margin-right: 0;
