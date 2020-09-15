@@ -5,7 +5,7 @@ const submenu = '.navi-1__submenu';
 const opened = 'navi-1__menu_opened';
 const $navi = $(`${navi}`);
 const $open = $(`${navi}`).find(`${menu}-open`);
-const navi_top = $navi.data("top_offset");
+const navi_top = parseInt($navi.css('padding-top'), 10);
 const navi_bg = $navi.data("bg_color");
 
 
@@ -57,11 +57,7 @@ const navi_bg = $navi.data("bg_color");
 				top: ""
 			});
 		} else {
-			$navi.css({
-				position: "",
-				backgroundColor: "",
-				paddingTop: ""
-			});
+			$navi.removeAttr('style');
 		}
 
 		if(scroll > (bottom_offset - navi_height)) {
@@ -72,7 +68,7 @@ const navi_bg = $navi.data("bg_color");
 		}
 	}
 
-	$(window).scroll(naviState);
+	$(window).on('scroll', naviState);
 	naviState();
 
 })();
