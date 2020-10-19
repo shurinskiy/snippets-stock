@@ -16,8 +16,8 @@
 			left: -16px; top: -16px; right: -16px; bottom: -16px;
 			z-index: 1; 
 			border: 12px solid white;
-			border-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M60,37V60H37a8,8,0,0,0-16,0H0V37a8,8,0,0,0,8-8,8,8,0,0,0-8-8V0H21a8,8,0,0,0,8,8,8,8,0,0,0,8-8H60V21a8,8,0,0,0,0,16Z" fill="#fff" fill-rule="evenodd"/></svg>') 18 round; 
-			
+			border-image: url('#{$images-path}icons-sprite.svg#icon-postmark-view-white') 27% round;
+			// border-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><path d="M60,37V60H37a8,8,0,0,0-16,0H0V37a8,8,0,0,0,8-8,8,8,0,0,0-8-8V0H21a8,8,0,0,0,8,8,8,8,0,0,0,8-8H60V21a8,8,0,0,0,0,16Z" fill="#fff" fill-rule="evenodd"/></svg>') 18 round; 
 		}
 	}
 	&_shadow {
@@ -35,7 +35,7 @@
 			bottom: -15px;
 			left: 0;
 			right: 0;
-			background: url(#{$image_path}shadows.png) left bottom no-repeat;			
+			background: url(#{$images-path}shadows.png) left bottom no-repeat;			
 		}
 	}
 	&_shadow-right {

@@ -2,6 +2,7 @@
 @import "lib/smart-grid.scss";
 @include reset();
 
+@import "../../node_modules/owl.carousel/dist/assets/owl.carousel";
 @import "../../node_modules/jquery-colorbox/example1/colorbox";
 
 // @include font-face("Roboto-Black", "RBBL");
