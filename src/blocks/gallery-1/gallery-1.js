@@ -2,8 +2,8 @@ import 'jquery-colorbox';
 
 if ($.colorbox) {
 	$(".gallery-1 a:has(img)").colorbox({
-        rel: 'gallery-1__item',
-        photo: true,
+		rel: 'gallery-1__item',
+		photo: true,
 		// current: false,
 		maxWidth: '95%',
 		maxHeight: '95%'

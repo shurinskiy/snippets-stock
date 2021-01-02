@@ -1,0 +1,31 @@
+.slider-2 {
+	$self: &;
+
+	&__item {
+		box-sizing: border-box;
+		box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.2);
+		width: 400px; height: 400px;
+		border-radius: 50%;
+		border: 13px solid #fff;
+		margin: 0 -100px;
+		overflow: hidden;
+	}
+
+	&__item-image {
+
+	}
+
+	.owl-stage-outer {
+		padding: 70px 0px;
+	}
+	.owl-item {
+		transition: transform 0.3s;
+	}
+
+	.owl-item.active.center {
+		z-index: 100;
+		transform: scale(1.2);
+	}
+
+
+}
